@@ -11,8 +11,8 @@ const Counter = (props: CounterProps) => {
   }
   return (
     <>
-      <div>{props.title}</div>
-      <div>
+      <div className="bg-emerald-300">{props.title}</div>
+      <div className="bg-red-700">
         카운터 수 : <span>{data}</span>
       </div>
       <button onClick={plus}>+1</button>
