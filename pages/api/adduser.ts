@@ -1,19 +1,25 @@
+import { User } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import client from "../../libs/server/client";
-type Data = {
-  name: string;
-};
-
+// type Data = {
+//   name: string;
+// };
+interface Data {
+  user?: User;
+  ok: boolean;
+}
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
   try {
-    const newUser = await client.user.create({
+    const user = await client.user.create({
       data: { name: "이덕화", age: 23, addr: "제주도" },
     });
-    res.status(200).json({ name: "okokokok" });
+
+    //@ts-ignore
+    res.status(200).json({ ok: true, user });
   } catch (err) {
-    res.status(200).json({ name: "MNNNNNNN" });
+    res.status(200).json({ ok: false });
   }
 }
