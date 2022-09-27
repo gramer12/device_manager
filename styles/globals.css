@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+.sunmoon_btn {
+  @apply bg-[#64AAFE] py-4 px-5 rounded-2xl dark:bg-[#15C580] flex hover:bg-[#AAE1EC] space-x-2 dark:hover:bg-[#2E7C60];
+}
