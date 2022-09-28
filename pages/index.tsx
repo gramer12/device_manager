@@ -1,8 +1,19 @@
+import { Device } from "@prisma/client";
 import type { NextPage } from "next";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { json } from "stream/consumers";
+import DeviceCard from "../components/DeviceCard";
 import Layout from "../components/Layout";
 
 const Home: NextPage = () => {
+  const [devices, setDevices] = useState<Device[]>([]);
+
+  useEffect(() => {
+    fetch("/api/device/all")
+      .then((res) => res.json())
+      .then((json) => setDevices(json.alldevice));
+  }, []);
   return (
     <Layout title="HOME">
       <div className="h-full ove p-6 overflow-y-scroll space-y-6">
@@ -38,21 +49,8 @@ const Home: NextPage = () => {
         </div>
 
         <div id="센서목록" className="flex flex-wrap justify-center">
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((device, idx) => (
-            <div
-              key={idx}
-              data-comment="장비카드"
-              className="bg-red-200 border-2 w-60 h-56 p-4 flex flex-col justify-between m-3"
-            >
-              <div className="flex justify-end space-x-2">
-                <span className="text-5xl ">25</span>
-                <span className="text-gray-500">%</span>
-              </div>
-              <div className="flex flex-col space-y-2">
-                <span>안방 에어컨센서</span>
-                <span className="text-4xl">습도</span>
-              </div>
-            </div>
+          {devices.map((device, idx) => (
+            <DeviceCard key={idx} device={device} />
           ))}
         </div>
       </div>

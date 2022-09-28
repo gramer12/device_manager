@@ -132,3 +132,15 @@ useEffect(()=>{
 
 //@ts-ignore
 타입스크립트를 우회하는 방법 단 급할때만 쓴다 주석처리까지해야함
+
+외래 키 할때
+model Device{
+Sencings Sencing[] 로 이름을 넣으면 Sencing의 모델에 추가됨
+}
+
+Device Device? @relation(fields: [deviceId], references: [id])
+deviceId String? @db.ObjectId
+이 Sencing 에 추가됨 프리즈마 확장프로그램이 해줌
+
+db다 보니깐 정합성 문제 가 있음
+속성추가할때 필수요소로하면 이상현상이 일어남
