@@ -25,9 +25,11 @@ export default function DeviceCard({ device }: DeviceCardProps) {
         <span className="text-gray-500">{device.unit}</span>
       </div>
       <div className="flex flex-col space-y-2">
-        <span>
-          {device.location} {device.memo}
-        </span>
+        <div className="flex flex-col items-baseline">
+          <span className="text-lg">{device.location} </span>
+          <span className="text-right text-gray-500">{device.memo}</span>
+        </div>
+
         <span className="text-3xl">{device.product}</span>
       </div>
     </div>

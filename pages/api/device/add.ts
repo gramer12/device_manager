@@ -24,6 +24,7 @@ export default async function handler(
   //     body: { product, location, type, unit, memo },
   //   } = request;
   const { product, location, type, unit, memo } = JSON.parse(request.body);
+
   //입력필드 검증
   if (true) {
     if (!product)
