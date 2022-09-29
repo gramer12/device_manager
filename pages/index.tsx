@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <div></div>
         <div id="웰컴메시지" className=" flex justify-between items-center">
           <div>
-            <div className="text-4xl">Hello gramer✌</div>
+            <div className="text-4xl">Hello YSJ✌</div>
             <div className="text-gray-500">welcome back to home</div>
           </div>
           <Link href={"/setting"}>
