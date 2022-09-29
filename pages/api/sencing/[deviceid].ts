@@ -70,7 +70,7 @@ export default async function handler(
 
       response.status(200).json({ ok: true, value: value });
     } catch (error) {
-      response.status(200).json({ ok: true, error });
+      response.status(200).json({ ok: true });
     }
   }
 }
