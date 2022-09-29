@@ -48,6 +48,9 @@ export default async function handler(
       response.status(200).json({ ok: true, value: result?.value });
     } catch (err) {
       response.status(200).json({ ok: false, error: `${err}` });
+    } finally {
+      //예외가 있던ㅇ벗던 실행되는 블럭
+      await client.$disconnect();
     }
   } else {
     console.log("www");
@@ -71,6 +74,9 @@ export default async function handler(
       response.status(200).json({ ok: true, value: value });
     } catch (error) {
       response.status(200).json({ ok: true });
+    } finally {
+      //예외가 있던ㅇ벗던 실행되는 블럭
+      await client.$disconnect();
     }
   }
 }
