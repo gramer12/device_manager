@@ -51,8 +51,6 @@ export default async function handler(
       return unit.status(200).json({ ok: false, error: "unit이 없습니다." });
   }
 
-  console.log(request.body);
-
   try {
     //@ts-ignore
     const newDevice = await client.device.create({

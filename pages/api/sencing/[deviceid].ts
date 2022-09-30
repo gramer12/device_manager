@@ -29,8 +29,6 @@ export default async function handler(
   }
   if (request.method == "GET") {
     try {
-      console.log("여기까지 출력됨");
-
       const result = await client.sencing.findFirst({
         where: {
           //필터링
@@ -44,7 +42,6 @@ export default async function handler(
           createAt: "desc",
         },
       });
-      console.log(result);
       response.status(200).json({ ok: true, value: result?.value });
     } catch (err) {
       response.status(200).json({ ok: false, error: `${err}` });
@@ -53,10 +50,7 @@ export default async function handler(
       await client.$disconnect();
     }
   } else {
-    console.log("www");
-    console.log(request);
     const value = JSON.parse(request.body);
-    console.log(value);
     try {
       if (isNaN(value)) {
         return response

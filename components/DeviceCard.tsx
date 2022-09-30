@@ -29,7 +29,6 @@ export default function DeviceCard({ device, realTime }: DeviceCardProps) {
     if (realTime) {
       const temptimerID = setInterval(() => {
         센싱데이터업데이트();
-        console.log(device.id, realTime);
       }, 5000);
       setTimerID(temptimerID);
     } else {

@@ -21,14 +21,12 @@ export default async function handler(
 
   try {
     const { deviceid } = request.query;
-    console.log(deviceid);
 
     const deleteDevice = await client.device.delete({
       where: {
         id: deviceid?.toString(),
       },
     });
-    console.log(deleteDevice);
 
     response.status(200).json({ ok: true, id: deleteDevice.id });
   } catch (err) {
